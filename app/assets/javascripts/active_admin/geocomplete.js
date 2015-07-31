@@ -7,6 +7,10 @@ var geocompleteFunction = function(){
     //setup
     $find_field.geocomplete({
       map: $map_canvas,
+
+      mapOptions: {
+      mapTypeId: "hybrid"
+      },
       markerOptions: {
         draggable: true
       },
