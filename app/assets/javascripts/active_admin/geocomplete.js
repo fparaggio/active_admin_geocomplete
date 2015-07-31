@@ -4,6 +4,7 @@ var geocompleteFunction = function(){
     $find_field = $(".find_location_input", $wrapper);
     $map_canvas = $(".map_canvas", $wrapper);
     $find_button = $(".update-map-button", $wrapper);
+    $("input[data-geo=lat]", $wrapper).first().remove();
     var setloc = new google.maps.LatLng($("input[data-geo=lat]", $wrapper).val(),$("input[data-geo=lng]", $wrapper).val());
     //setup
     $find_field.geocomplete({
@@ -43,7 +44,7 @@ var geocompleteFunction = function(){
       var new_setloc = new google.maps.LatLng($("input[data-geo=lat]", $wrapper).val(),$("input[data-geo=lng]", $wrapper).val());
       $find_field.geocomplete({
         map: $map_canvas,
-        location: setloc,
+        location: new_setloc,
         mapOptions: {
         mapTypeId: "hybrid"
         },
