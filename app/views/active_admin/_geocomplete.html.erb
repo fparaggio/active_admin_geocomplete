@@ -22,5 +22,5 @@
   </li>
   <%= form.input lat, input_html: {data: {geo: "lat"}} if lat != false%>
   <%= form.input lng, input_html: {data: {geo: "lng"}} if lng != false%>
-  <%= button_to "Update Map", { id: map_id + "-update" } %>
+  <button type="button" id="<%= "updatemap-"map_id %>">Update Map</button>
 <% end %>
