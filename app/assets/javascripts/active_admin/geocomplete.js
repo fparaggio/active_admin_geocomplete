@@ -4,10 +4,11 @@ var geocompleteFunction = function(){
     $find_field = $(".find_location_input", $wrapper);
     $map_canvas = $(".map_canvas", $wrapper);
     $find_button = $(".update-map-button", $wrapper);
+    var setloc = new google.maps.LatLng($("input[data-geo=lat]", $wrapper).val(),$("input[data-geo=lng]", $wrapper).val());
     //setup
     $find_field.geocomplete({
       map: $map_canvas,
-
+      location: setloc,
       mapOptions: {
       mapTypeId: "hybrid"
       },
@@ -34,13 +35,25 @@ var geocompleteFunction = function(){
     });
     /////////////////////////////////////////////////////////
 
-    // let's use lat/long to display an existing location
-    var location = $("input[data-geo=lat]", $wrapper).val() + ',' + $("input[data-geo=lng]", $wrapper).val();
-    $find_field.geocomplete("find", location);
+    //  let's use lat/long to display an existing location
+    //  var location = $("input[data-geo=lat]", $wrapper).val() + ',' + $("input[data-geo=lng]", $wrapper).val();
+    //  $find_field.geocomplete("find", location);
 
     $find_button.bind("click", function(){
-      var location = $("input[data-geo=lat]", $wrapper).val() + ',' + $("input[data-geo=lng]", $wrapper).val();
-      $find_field.geocomplete("find", location);
+      var new_setloc = new google.maps.LatLng($("input[data-geo=lat]", $wrapper).val(),$("input[data-geo=lng]", $wrapper).val());
+      $find_field.geocomplete({
+        map: $map_canvas,
+        location: setloc,
+        mapOptions: {
+        mapTypeId: "hybrid"
+        },
+        markerOptions: {
+          draggable: true
+        },
+        details: $wrapper,
+        detailsAttribute: "data-geo"
+      });
+
     });
 
 
