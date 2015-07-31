@@ -1,5 +1,4 @@
-$(document).ready(function(){
-
+var geocompleteFunction = function(){
   $(".aageocomplete_wrapper").each(function() {
     $wrapper = $(this);
     $find_field = $(".find_location_input", $wrapper);
@@ -35,4 +34,7 @@ $(document).ready(function(){
     var location = $("input[data-geo=lat]", $wrapper).val() + ',' + $("input[data-geo=lng]", $wrapper).val();
     $find_field.geocomplete("find", location);
   });
-});
+};
+
+$(document).ready(geocompleteFunction);
+$(document).bind( "has_many_add:after", geocompleteFunction );
