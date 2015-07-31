@@ -20,13 +20,13 @@ var geocompleteFunction = function(){
 
     /////////////////////////////////////////////////////////
     $find_field.bind("geocode:result", function(event, result){
-      wrapper = $(event.target).closest('.aageocomplete_wrapper')
+      wrapper = $(event.target).closest('.aageocomplete_wrapper');
       var full_address = $("input[data-geo=formatted_address]", wrapper).val();
     });
 
     /////////////////////////////////////////////////////////
     $find_field.bind("geocode:dragged", function(event, latLng){
-      wrapper = $(event.target).closest('.aageocomplete_wrapper')
+      wrapper = $(event.target).closest('.aageocomplete_wrapper');
 
       $("input[data-geo=lat]", wrapper).val(latLng.lat());
       $("input[data-geo=lng]", wrapper).val(latLng.lng());
@@ -38,10 +38,13 @@ var geocompleteFunction = function(){
     var location = $("input[data-geo=lat]", $wrapper).val() + ',' + $("input[data-geo=lng]", $wrapper).val();
     $find_field.geocomplete("find", location);
 
-    $find_button.("click", function(){
+    $find_button.bind("click", function(){
       var location = $("input[data-geo=lat]", $wrapper).val() + ',' + $("input[data-geo=lng]", $wrapper).val();
       $find_field.geocomplete("find", location);
     });
+
+
+
 
   });
 };
