@@ -414,6 +414,11 @@
       }
     },
 
+    moveMarker: function(latLng){
+      if (this.map){ this.map.setCenter(latLng); }
+      if (this.marker){ this.marker.setPosition(latLng); }
+    },
+
     // Fire the "geocode:dragged" event and pass the new position.
     markerDragged: function(event){
       this.trigger("geocode:dragged", event.latLng);

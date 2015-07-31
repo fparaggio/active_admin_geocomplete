@@ -42,18 +42,7 @@ var geocompleteFunction = function(){
 
     $find_button.bind("click", function(){
       var new_setloc = new google.maps.LatLng($("input[data-geo=lat]", $wrapper).val(),$("input[data-geo=lng]", $wrapper).val());
-      $find_field.geocomplete({
-        map: $map_canvas,
-        location: new_setloc,
-        mapOptions: {
-        mapTypeId: "hybrid"
-        },
-        markerOptions: {
-          draggable: true
-        },
-        details: $wrapper,
-        detailsAttribute: "data-geo"
-      });
+      $find_field.geocomplete('moveMarker', new_setloc);
 
     });
 
