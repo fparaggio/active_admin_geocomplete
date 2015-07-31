@@ -6,11 +6,6 @@
  map_id = "map_canvas" if map_id.nil?
  %>
 
-<% if https %>
- <script src="https://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
-<% else %>
-  <script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
-<% end %>
 
 <%= form.inputs "Location", class: "aageocomplete_wrapper" do %>
 	<% if address != false%>
