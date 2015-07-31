@@ -37,6 +37,8 @@ var geocompleteFunction = function(){
     // let's use lat/long to display an existing location
     var location = $("input[data-geo=lat]", $wrapper).val() + ',' + $("input[data-geo=lng]", $wrapper).val();
     $find_field.geocomplete("find", location);
+
+
   });
 };
 
