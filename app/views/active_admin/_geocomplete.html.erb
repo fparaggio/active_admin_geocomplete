@@ -19,8 +19,8 @@
   <li class="input optional" id="map_canvas_container">
     <label class="label">Location preview</label>
     <div class="map_canvas" id="<%= map_id %>"/>
+    <button type="button" class="update-map-button" id="<%= 'updatemap-' + map_id %>">Update Map</button>
   </li>
   <%= form.input lat, input_html: {data: {geo: "lat"}} if lat != false%>
   <%= form.input lng, input_html: {data: {geo: "lng"}} if lng != false%>
-  <button type="button" id="<%= 'updatemap-' + map_id %>">Update Map</button>
 <% end %>

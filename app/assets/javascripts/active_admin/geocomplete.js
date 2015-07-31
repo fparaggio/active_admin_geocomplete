@@ -3,7 +3,7 @@ var geocompleteFunction = function(){
     $wrapper = $(this);
     $find_field = $(".find_location_input", $wrapper);
     $map_canvas = $(".map_canvas", $wrapper);
-
+    $find_button = $(".update-map-button", $wrapper);
     //setup
     $find_field.geocomplete({
       map: $map_canvas,
@@ -38,6 +38,10 @@ var geocompleteFunction = function(){
     var location = $("input[data-geo=lat]", $wrapper).val() + ',' + $("input[data-geo=lng]", $wrapper).val();
     $find_field.geocomplete("find", location);
 
+    $find_button.("click", function(){
+      var location = $("input[data-geo=lat]", $wrapper).val() + ',' + $("input[data-geo=lng]", $wrapper).val();
+      $find_field.geocomplete("find", location);
+    });
 
   });
 };
